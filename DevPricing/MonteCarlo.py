@@ -1,6 +1,6 @@
 import numpy as np
 
-def MonteCarloEuroCall(S: float, K: float, T: float, sigma: float, r: float, N:int, y: float = 0, t: float = 0) -> float:
+def EuroCall(S: float, K: float, T: float, sigma: float, r: float, N:int, y: float = 0, t: float = 0) -> float:
     '''
     S: Currunt Stock Price
     K: Strike Price
@@ -12,7 +12,7 @@ def MonteCarloEuroCall(S: float, K: float, T: float, sigma: float, r: float, N:i
     t: Current Time, default to be zero
 
     Example:
-    MonteCarloEuroCall(80, 50, 1, 0.2, 0.05, 1000000)
+    EuroCall(80, 50, 1, 0.2, 0.05, 1000000)
     Option Pricing for a call mature in 1 year with no dividend yield,
     strike price 50, currunt price 80, volatility at 20% and risk-free rate at 5%
     '''

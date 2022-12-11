@@ -1,7 +1,7 @@
 import numpy as np
 from scipy.stats import norm
 
-def BlackScholesEuroCall(S: float, K: float, T: float, sigma: float, r: float, y: float = 0, t: float = 0) -> float:
+def EuroCall(S: float, K: float, T: float, sigma: float, r: float, y: float = 0, t: float = 0) -> float:
     '''
     S: Currunt Stock Price
     K: Strike Price
@@ -12,11 +12,11 @@ def BlackScholesEuroCall(S: float, K: float, T: float, sigma: float, r: float, y
     t: Current Time, default to be zero
 
     Example:
-    BlackScholesEuroCall(80, 50, 1, 0.2, 0.05)
+    EuroCall(80, 50, 1, 0.2, 0.05)
     Option Pricing for a call mature in 1 year with no dividend yield,
     strike price 50, currunt price 80, volatility at 20% and risk-free rate at 5%
     '''    
-    d1 = (np.log(S / K) + (r - y + ((sigma ** 0.5) / 2) * (T- t))) / (sigma * ((T - t) ** 0.5))
+    d1 = (np.log(S / K) + (r - y + ((sigma ** 2) / 2) * (T- t))) / (sigma * ((T - t) ** 0.5))
     d2 = d1 - (sigma * ((T - t) ** 0.5))
     Nd1 = norm.cdf(d1)
     Nd2 = norm.cdf(d2)
