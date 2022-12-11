@@ -35,7 +35,7 @@ def BinaryCall(Q: float, S: float, K: float, T: float, sigma: float, r: float, y
 
     Example:
     BinaryCall(1, 80, 50, 1, 0.2, 0.05)
-    Option Pricing for a call mature in 1 year with no dividend yield,
+    Binary call with payoff 1, mature in 1 year with no dividend yield,
     strike price 50, currunt price 80, volatility at 20% and risk-free rate at 5%
     '''    
     d2 = (np.log(S / K) + (r - y - ((sigma ** 2) / 2) * (T- t))) / (sigma * ((T - t) ** 0.5))
