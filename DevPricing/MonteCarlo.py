@@ -18,7 +18,7 @@ def EuroCall(S: float, K: float, T: float, sigma: float, r: float, N:int, y: flo
     '''
     normals = np.random.randn(N)
     S_T = (S * np.exp((r - y - (sigma ** 2) / 2) * (T - t) + sigma * (T ** 0.5) * normals)) - K
-    S_T = np.exp(-r * T) * np.where(S_T < 0, 0, S_T)
+    S_T = np.exp(-r * (T - t)) * np.where(S_T < 0, 0, S_T)
     c = np.mean(S_T)
     return c
 
@@ -41,6 +41,6 @@ def BinaryCall(Q: float, S: float, K: float, T: float, sigma: float, r: float, N
     '''
     normals = np.random.randn(N)
     S_T = (S * np.exp((r - y - (sigma ** 2) / 2) * (T - t) + sigma * (T ** 0.5) * normals)) - K
-    S_T = np.exp(-r * T) * np.where(S_T < 0, 0, Q)
+    S_T = np.exp(-r * (T - t)) * np.where(S_T < 0, 0, Q)
     c = np.mean(S_T)
     return c
